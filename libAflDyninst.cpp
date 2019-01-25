@@ -4,7 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
-#include "config.h"
+#include "../afl/config.h"
 #include <sys/types.h>
 #include <sys/shm.h>
 #include <unistd.h>
