@@ -384,7 +384,10 @@ int main(int argc, char **argv) {
     BPatch_Vector < BPatch_function * >funcs;
     defaultModule->findFunction("_init", funcs);
     if (!funcs.size()) {
-      cerr << "Couldn't locate _init, specify entry point manually with -e 0xaddr" << endl;
+      defaultModule->findFunction("_start", funcs);
+    }
+    if (!funcs.size()) {
+      cerr << "Couldn't locate _init or _start, specify entry point manually with -e 0xaddr" << endl;
       return EXIT_FAILURE;
     }
     // there should really be only one
